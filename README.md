@@ -1,8 +1,15 @@
 # ericmoderbacher.com
 Welcome to the repo for my personal website.
 
+## Structure
+I use my webBoilerPlate repo which makes it easier for me to reuse my web toolbox
+You can check out its documentation which should totally exist soon 😉.
+
+
+
 ## Build Instructions
 Yes we build this site because compilers are our friends.
+
 
 
 ### Design Language

@@ -1,0 +1,3 @@
+[submodule "webBoilerPlate"]
+	path = webBoilerPlate
+	url = https://github.com/ericmoderbacher/webBoilerPlate.git

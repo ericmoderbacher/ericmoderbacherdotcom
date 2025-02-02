@@ -1,0 +1,28 @@
+name: Deploy Workflow
+
+on:
+  push:
+    branches:
+      - main  # Trigger deployment when changes are pushed to the main branch
+
+jobs:
+  deploy:
+    name: Deployment Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          cmake --build .
+
+      - name: Deploy Application
+        run: |
+          scp build/my_application user@your-remote-server:/path/to/deployment
+        env:
+          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

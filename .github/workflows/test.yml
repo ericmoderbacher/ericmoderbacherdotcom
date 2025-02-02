@@ -1,0 +1,39 @@
+name: Testing Workflow
+
+on:
+  pull_request:
+    branches:
+      - main  # Run tests when PRs are opened targeting main
+  push:
+    branches:
+      - main  # Run tests when changes are pushed to the main branch
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up the build environment (if needed, e.g., install dependencies)
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake
+
+      # Step 3: Build the project
+      - name: Build the project
+        run: |
+          mkdir -p build
+          cd build
+          cmake ..
+          cmake --build .
+
+      # Step 4: Run tests using CTest (or your test harness)
+      - name: Run tests
+        run: |
+          cd build
+          ctest --output-on-failure

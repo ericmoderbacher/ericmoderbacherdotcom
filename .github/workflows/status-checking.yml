@@ -1,0 +1,45 @@
+name: Status Checking Workflow
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # Run every 6 hours
+  workflow_dispatch:       # Allow devs to run it manually from GitHub
+
+jobs:
+  status:
+    name: Status Gathering Job
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check API or Deployment Health
+      - name: Check API Endpoint
+        run: |
+          curl -sSf https://your-deployment-url.com/health || echo "API is down!"
+
+      # Step 2: Fetch logs from the remote environment (requires SSH setup)
+      - name: Fetch remote logs
+        run: |
+          ssh -i ${SSH_KEY} user@your-remote-server "cat /var/log/my-app.log" > logs/my-app.log
+        env:
+          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # Step 3: Check resource health (e.g., CPU usage, memory, disk space)
+      - name: Gather system metrics
+        run: |
+          echo "--- CPU Usage ---"
+          mpstat
+          echo "--- Disk Usage ---"
+          df -h
+          echo "--- Memory Usage ---"
+          free -m
+
+      # Step 4: Upload logs for inspection (optional)
+      - name: Upload logs
+        uses: actions/upload-artifact@v3
+        with:
+          name: system-status
+          path: ./logs/
+
+      # Step 5 (optional): Report collected status
+      - name: Log Summary
+        run: echo "Status gathering completed. Logs uploaded!"

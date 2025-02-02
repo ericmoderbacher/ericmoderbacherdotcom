@@ -2,29 +2,35 @@
 Welcome to the repo for my personal website.
 
 ## Build Instructions
-Yes we build this site because compilers are our friends.
-
+Yes, we build this site because compilers are our friends.
 
 ### Design Language
-- Self Documenting
-- clean but feature rich
-- easy for others to copy
-- C++, Lua, HIP/CUDA, openscad should be prominent because I dont like HTML/CSS/javascript as much as I respect them.
-- No need to leave the site, while always making it easy to.
-- I kind of love markdown... maybe i should have a slightly modified version for my site?
+- Self-Documenting
+- Clean but feature-rich
+- Easy for others to copy
+- C++, Lua, HIP/CUDA, and OpenSCAD are my favorite languages, so they will be used
+- No need to leave the site, while always making it easy to do so
+- I kinda love Markdown... maybe I should have a slightly modified version for my site?
+
+### Website Pages and Their Feature Wishlist
+- About
+- Contact
+- Directory (inside and outside of the site)
+- Repos
 
 ### Website Feature Wishlist
 - Basic contact info, personal introduction, resume, social media
-- Project Web Log / notes
-- git front end like gitlab
-- photo gallery
-- Secure front end to my web connected capabilities:
+- Project Web Log / Notes
+- Git frontend like GitLab
+- Photo gallery
+- Secure frontend to my web-connected capabilities:
   - Media server
-  - IoT management including homekit, 3d printing, etc
-  - web work space for software (in a pinch)
-- my youtube-like videos
-- links to validation farm, opensourceAF, friends sites
-- device dark mode detection
+  - IoT management, including HomeKit, 3D printing, etc.
+  - Web workspace for software (in a pinch)
+- My YouTube-like videos
+- Links to validation farm, OpenSourceAF, and friends' sites
+- Device dark mode detection
 
-
-
+### Project Goals
+- Learn a little
+- Have fun
